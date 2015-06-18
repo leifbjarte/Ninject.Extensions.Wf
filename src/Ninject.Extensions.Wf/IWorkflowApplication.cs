@@ -67,9 +67,17 @@ namespace Ninject.Extensions.Wf
         /// <remarks>Adds the necessary extensions to build up workflows with ninject.</remarks>
         void Initialize(Activity workflowDefinition);
 
+        /// <include file='../System.Activities.xml' path='/doc/members/member[@name="M:System.Activities.WorkflowApplication.#ctor(System.Activities.Activity, System.Activities.WorkflowIdentity)"]/*' />
+        /// <remarks>Adds the necessary extensions to build up workflows with ninject.</remarks>
+        void Initialize(Activity workflowDefinition, WorkflowIdentity identity);
+
         /// <include file='../System.Activities.xml' path='/doc/members/member[@name="M:System.Activities.WorkflowApplication.#ctor(System.Activities.Activity,System.Collections.Generic.IDictionary{System.String,System.Object})"]/*' />
         /// <remarks>Adds the necessary extensions to build up workflows with ninject.</remarks>
         void Initialize(Activity workflowDefinition, IDictionary<string, object> inputs);
+
+        /// <include file='../System.Activities.xml'path='/doc/members/member[@name="M:System.Activities.WorkflowApplication.#ctor(System.Activities.Activity,System.Collections.Generic.IDictionary{System.String,System.Object}, System.Activities.WorkflowIdentity)"]/*' />
+        /// <remarks>Adds the necessary extensions to build up workflows with ninject.</remarks>
+        void Initialize(Activity workflowDefinition, IDictionary<string, object> inputs, WorkflowIdentity identity);
 
         /// <include file='../System.Activities.xml' path='/doc/members/member[@name="M:System.Activities.WorkflowApplication.Unload"]/*' />
         void Unload();
@@ -121,6 +129,9 @@ namespace Ninject.Extensions.Wf
 
         /// <include file='../System.Activities.xml' path='/doc/members/member[@name="M:System.Activities.WorkflowApplication.Load(System.Guid,System.TimeSpan)"]/*' />
         void Load(Guid instanceId, TimeSpan timeout);
+
+        /// <include file='../System.Activities.xml' path='/doc/members/member[@name="M:System.Activities.WorkflowApplication.Load(System.Activities.WorkflowApplicationInstance)"]/*' />
+        void Load(WorkflowApplicationInstance instance);
 
         /// <include file='../System.Activities.xml' path='/doc/members/member[@name="M:System.Activities.WorkflowApplication.GetBookmarks"]/*' />
         ReadOnlyCollection<BookmarkInfo> GetBookmarks();

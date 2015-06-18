@@ -195,11 +195,27 @@ namespace Ninject.Extensions.Wf
         }
 
         /// <inheritdoc />
+        public void Initialize(Activity workflowDefinition, WorkflowIdentity identity)
+        {
+            Application = new WorkflowApplication(workflowDefinition, identity);
+
+            AddExtensions();
+        }
+
+        /// <inheritdoc />
         public void Initialize(Activity workflowDefinition, IDictionary<string, object> inputs)
         {
             this.Application = new WorkflowApplication(workflowDefinition, inputs);
 
             this.AddExtensions();
+        }
+
+        /// <inheritdoc />
+        public void Initialize(Activity workflowDefinition, IDictionary<string, object> inputs, WorkflowIdentity identity)
+        {
+            Application = new WorkflowApplication(workflowDefinition, inputs, identity);
+
+            AddExtensions();
         }
 
         /// <inheritdoc />
@@ -308,6 +324,12 @@ namespace Ninject.Extensions.Wf
         public void Load(Guid instanceId, TimeSpan timeout)
         {
             this.Application.Load(instanceId, timeout);
+        }
+
+        /// <inheritdoc />
+        public void Load(WorkflowApplicationInstance instance)
+        {
+            Application.Load(instance);
         }
 
         /// <inheritdoc />
